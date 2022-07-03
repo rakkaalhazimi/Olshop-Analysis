@@ -3,9 +3,11 @@ const searchBar = document.getElementById("searchBar");
 let dataForSearch = []
 searchBar.addEventListener("keyup", (e) => {
 	const searchString = e.target.value;
-	const filteredData = dataForSearch.filter((value) => {
-		return value.name.toLowerCase().includes(searchString) || value.house.toLowerCase().includes(searchString);
-	});
+	if (searchString != " " && searchString != "") {
+		filteredData = dataForSearch.filter((value) => {
+			return value.name.toLowerCase().includes(searchString) || value.house.toLowerCase().includes(searchString);
+		});
+	}
     displayDataSearched(filteredData);
     // console.log(filteredData)
 });
